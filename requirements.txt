@@ -1,4 +1,5 @@
 Flask
-yt-dlp
+yt-dlp>=2026.03.00
 gunicorn
+
 
