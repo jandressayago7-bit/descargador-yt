@@ -13,7 +13,9 @@ def index():
         ydl_opts = {
             'format': 'best',
             'outtmpl': 'downloads/%(title)s.%(ext)s',
-        }
+            'extractor_args': {'youtube': {'player_client': ['android', 'web']}},
+         }
+        
         
         try:
             with yt_dlp.YoutubeDL(ydl_opts) as ydl:
