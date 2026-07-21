@@ -9,7 +9,7 @@ def index():
     if request.method == 'POST':
         url = request.form['url']
         yt = YouTube(url)
-        stream = yt.streams.get_highest_resolution()
+        stream = yt.streams.filter(progressive=True, file_extension='mp4').get_highest_resolution()
         file_path = stream.download(output_path="downloads")
         return send_file(file_path, as_attachment=True)
     
@@ -19,5 +19,4 @@ def index():
 if __name__ == '__main__':
     if not os.path.exists('downloads'):
         os.makedirs('downloads')
-    # Cambiamos host a '0.0.0.0' para que sea accesible desde otros dispositivos
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True)
