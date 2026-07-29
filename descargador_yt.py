@@ -10,11 +10,18 @@ def index():
         url = request.form['url']
         
         # Opciones para yt-dlp guardando en la carpeta downloads
-        ydl_opts = {
+                ydl_opts = {
             'format': 'best',
             'outtmpl': 'downloads/%(title)s.%(ext)s',
-            'extractor_args': {'youtube': {'player_client': ['web_embedded']}},
-        }
+            'extractor_args': {
+                'youtube': {
+                    'player_client': ['android', 'web'],
+                    'skip': ['dash', 'hls']
+                }
+            },
+                }
+        
+        
         
         
         
