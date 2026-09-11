@@ -9,13 +9,14 @@ def index():
     if request.method == 'POST':
         url = request.form['url']
         
+        
         # Opciones para yt-dlp guardando en la carpeta downloads
         ydl_opts = {
-            'format': 'best',
-            'outtmpl': 'downloads/%(title)s.%(ext)s',
-            'cookiefile' : 'cookies.txt'
-       
-        }
+        'format': 'best[ext=mp4]/best',
+        'outtmpl': 'downloads/%(title)s.%(ext)s',
+        'cookiefile': 'cookies.txt',
+    }
+
         
         
         
